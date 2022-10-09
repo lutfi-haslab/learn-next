@@ -1,105 +1,146 @@
-import Image from "next/image";
-import React from "react";
-
-import contactus from "../../public/assets/contact-us.jpg";
-import { FaFacebook, FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
+import { AiOutlineMail } from 'react-icons/ai';
+import { BsFillPersonLinesFill } from 'react-icons/bs';
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { HiOutlineChevronDoubleUp } from 'react-icons/hi';
+import ContactImg from '../../public/assets/contact.jpg';
 
 const Contact = () => {
   return (
-    <div id="contact" className="w-full">
-      <div className="max-w-screen-xl mx-auto px-8 py-16 text-center md:text-left">
-        <h2 className="text-5xl md:text-7xl tracking-wider uppercase text-blue-500 font-bold">
-          contact
-        </h2>
+    <div id='contact' className='w-full lg:h-screen'>
+      <div className='max-w-[1240px] m-auto px-2 py-16 w-full '>
+        <p className='text-xl tracking-widest uppercase text-[#5651e5]'>
+          Contact
+        </p>
+        <h2 className='py-4'>Get In Touch</h2>
+        <div className='grid lg:grid-cols-5 gap-8'>
+          {/* left */}
+          <div className='col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
+            <div className='lg:p-4 h-full '>
+              <div>
+                <Image
+                  className='rounded-xl hover:scale-105 ease-in duration-300'
+                  src={ContactImg}
+                  alt='/'
+                />
+              </div>
+              <div>
+                <h2 className='py-2'>Clint Briley</h2>
+                <p>Front-End Developer</p>
+                <p className='py-4'>
+                  I am available for freelance or full-time positions. Contact
+                  me and let&apos;s talk.
+                </p>
+              </div>
+              <div>
+                <p className='uppercase pt-8'>Connect With Me</p>
+                <div className='flex items-center justify-between py-4'>
+                  <a
+                    href='https://www.linkedin.com/in/lutfi-ikbal-majid-044184172/'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                      <FaLinkedinIn />
+                    </div>
+                  </a>
+                  <a
+                    href='https://github.com/lutfi-haslab'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                      <FaGithub />
+                    </div>
+                  </a>
 
-        <div className="flex flex-col md:flex-row gap-8 shadow-xl shadow-blue-300 bg-white mt-4">
-          <div className="w-full md:w-1/2 h-full rounded-xl p-4">
-            <Image
-              src={contactus}
-              alt="man with laptop"
-              className="rounded-xl"
-            />
-            <p className="pt-2 pb-8">
-              I am open to talk regarding freelancing or full-time
-              opportunities. Fell free to contact me using your preferred
-              medium.
-            </p>
-
-            <div className="grid grid-cols-2 mx-auto w-4/5 gap-10">
-              <div className="flex items-center justify-center rounded-full shadow-md shadow-blue-500 hover:scale-105 duration-200 p-3 cursor-pointer">
-                <FaLinkedin size={25} />
-              </div>
-              <div className="flex items-center justify-center rounded-full shadow-md shadow-blue-500 hover:scale-105 duration-200 p-3 cursor-pointer">
-                <FaTwitter size={25} />
-              </div>
-              <div className="flex items-center justify-center rounded-full shadow-md shadow-blue-500 hover:scale-105 duration-200 p-3 cursor-pointer">
-                <FaFacebook size={25} />
-              </div>
-              <div className="flex items-center justify-center rounded-full shadow-md shadow-blue-500 hover:scale-105 duration-200 p-3 cursor-pointer">
-                <FaGithub size={25} />
+                  <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <AiOutlineMail />
+                  </div>
+                  <Link href='/resume'>
+                    <a>
+                      <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
+                        <BsFillPersonLinesFill />
+                      </div>
+                    </a>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* form stuff  */}
-          <div className="p-4 text-left">
+          {/* right */}
+          <div className='col-span-3 w-full h-auto shadow-xl shadow-gray-400 rounded-xl lg:p-4'>
+            <div className='p-4'>
               <form
-                action="https://getform.io/f/e94d295d-086a-4974-ba95-f0fe40394521"
-                method="POST"
+                action='https://getform.io/f/e94d295d-086a-4974-ba95-f0fe40394521'
+                method='POST'
+                encType='multipart/form-data'
               >
-                <div className="flex flex-col">
-                  <div className="flex flex-col md:flex-row md:space-x-3">
-                  <div className="flex flex-col">
-                    <label className="capitalize text-sm py-2 text-slate-600 font-light">
-                      name
-                    </label>
+                <div className='grid md:grid-cols-2 gap-4 w-full py-2'>
+                  <div className='flex flex-col'>
+                    <label className='uppercase text-sm py-2'>Name</label>
                     <input
-                      type="text"
-                      name="name"
-                      className="border-2 rounded-lg p-3 flex focus:outline-none border-blue-200"
+                      className='border-2 rounded-lg p-3 flex border-gray-300'
+                      type='text'
+                      name='name'
                     />
                   </div>
-                  <div className="flex flex-col">
-                    <label className="capitalize text-sm py-2 text-slate-600 font-light">
-                      phone
+                  <div className='flex flex-col'>
+                    <label className='uppercase text-sm py-2'>
+                      Phone Number
                     </label>
                     <input
-                      type="text"
-                      name="phone"
-                      className="border-2 rounded-lg p-3 flex focus:outline-none border-blue-200"
+                      className='border-2 rounded-lg p-3 flex border-gray-300'
+                      type='text'
+                      name='phone'
                     />
-                  </div>
-                  </div>
-
-                  <div className="flex flex-col col-span-2">
-                    <label className="capitalize text-sm py-2 text-slate-600 font-light">
-                      email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      className="border-2 rounded-lg p-3 flex focus:outline-none border-blue-200"
-                    />
-                  </div>
-                  <div className="flex flex-col col-span-2">
-                    <label className="capitalize text-sm py-2 text-slate-600 font-light">
-                      message
-                    </label>
-                    <textarea
-                      name="message"
-                      rows="10"
-                      className="border-2 rounded-lg p-3 flex focus:outline-none border-blue-200"
-                    ></textarea>
                   </div>
                 </div>
-
-                <div className="flex items-center justify-center">
-                  <button className="my-8 bg-blue-500 text-white px-6 py-3 font-bold uppercase rounded-md tracking-wider cursor-pointer hover:scale-105 duration-200">
-                    send message
-                  </button>
+                <div className='flex flex-col py-2'>
+                  <label className='uppercase text-sm py-2'>Email</label>
+                  <input
+                    className='border-2 rounded-lg p-3 flex border-gray-300'
+                    type='email'
+                    name='email'
+                  />
                 </div>
+                <div className='flex flex-col py-2'>
+                  <label className='uppercase text-sm py-2'>Subject</label>
+                  <input
+                    className='border-2 rounded-lg p-3 flex border-gray-300'
+                    type='text'
+                    name='subject'
+                  />
+                </div>
+                <div className='flex flex-col py-2'>
+                  <label className='uppercase text-sm py-2'>Message</label>
+                  <textarea
+                    className='border-2 rounded-lg p-3 border-gray-300'
+                    rows='10'
+                    name='message'
+                  ></textarea>
+                </div>
+                <button className='w-full p-4 text-gray-100 mt-4'>
+                  Send Message
+                </button>
               </form>
             </div>
+          </div>
+        </div>
+        <div className='flex justify-center py-12'>
+          <Link href='/'>
+            <a>
+              <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                <HiOutlineChevronDoubleUp
+                  className='text-[#5651e5]'
+                  size={30}
+                />
+              </div>
+            </a>
+          </Link>
         </div>
       </div>
     </div>

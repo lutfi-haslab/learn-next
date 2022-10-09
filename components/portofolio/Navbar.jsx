@@ -1,146 +1,200 @@
+import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-
-import {
-  FaBars,
-  FaTimes,
-  FaFacebook,
-  FaGithub,
-  FaTwitter,
-  FaLinkedin,
-} from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { BsFillPersonLinesFill } from "react-icons/bs";
+// import { useRouter } from 'next/router';
+import NavLogo from "../../public/assets/navLogo.png";
 
 const Navbar = () => {
-  const [navigation, setNavigation] = useState(false);
-  const [pageScroll, setPageScroll] = useState(false);
+  const [nav, setNav] = useState(false);
+  const [shadow, setShadow] = useState(false);
+  const [navBg, setNavBg] = useState("#ecf0f3");
+  const [linkColor, setLinkColor] = useState("#1f2937");
+  // const [position, setPosition] = useState('fixed')
+  // const router = useRouter();
+
+  // useEffect(() => {
+  //   if (
+  //     router.asPath === '/property' ||
+  //     router.asPath === '/crypto' ||
+  //     router.asPath === '/netflix' ||
+  //     router.asPath === '/twitch'
+  //   ) {
+  //     setNavBg('transparent');
+  //     setLinkColor('#ecf0f3');
+  //   } else {
+  //     setNavBg('#ecf0f3');
+  //     setLinkColor('#1f2937');
+  //   }
+  // }, [router]);
+
+  const handleNav = () => {
+    setNav(!nav);
+  };
 
   useEffect(() => {
-    const sub = window.addEventListener("scroll", () =>
-      setPageScroll(window.scrollY >= 90)
-    );
-
-    return sub;
+    const handleShadow = () => {
+      if (window.scrollY >= 90) {
+        setShadow(true);
+      } else {
+        setShadow(false);
+      }
+    };
+    window.addEventListener("scroll", handleShadow);
   }, []);
-
-  const links = [
-    {
-      id: 1,
-      link: "home",
-    },
-    {
-      id: 2,
-      link: "portfolio",
-    },
-    {
-      id: 3,
-      link: "experience",
-    },
-    {
-      id: 4,
-      link: "me",
-    },
-    {
-      id: 5,
-      link: "contact",
-    },
-  ];
 
   return (
     <div
-      className={`w-full h-20 z-10 fixed bg-white text-black duration-300 ease-in ${
-        pageScroll && "bg-black text-[#fff]"
-      }`}
+      style={{ backgroundColor: `${navBg}` }}
+      className={
+        shadow
+          ? "fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300"
+          : "fixed w-full h-20 z-[100]"
+      }
     >
-      <div className="flex justify-between items-center w-full h-full max-w-screen-xl mx-auto p-4">
-        <Link href="/#home">
-          <h1 className="text-3xl lg:text-4xl font-bold uppercase underline underline-offset-2 tracking-wider cursor-pointer">
-            Lutfi Ikbal Majid
-          </h1>
+      <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
+        <Link href="/">
+          <h1 className="cursor-pointer">Lutv</h1>
         </Link>
-
         <div>
-          <ul className="hidden md:flex">
-            {links.map(({ id, link }) => (
-              <Link key={id} href={`/#${link}`}>
-                <li className="ml-10 text-sm uppercase cursor-pointer duration-200 ease-out hover:scale-105 tracking-wider">
-                  {link}
-                </li>
-              </Link>
-            ))}
+          <ul style={{ color: `${linkColor}` }} className="hidden md:flex">
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/#about">About</Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/#skills">Skills</Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/#projects">Projects</Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/resume">Resume</Link>
+            </li>
+            <li className="ml-10 text-sm uppercase hover:border-b">
+              <Link href="/#contact">Contact</Link>
+            </li>
           </ul>
-
-          {!navigation && (
-            <div
-              className="md:hidden cursor-pointer"
-              onClick={() => setNavigation(true)}
-            >
-              <FaBars size={30} />
-            </div>
-          )}
+          {/* Hamburger Icon */}
+          <div
+            style={{ color: `${linkColor}` }}
+            onClick={handleNav}
+            className="md:hidden"
+          >
+            <AiOutlineMenu size={25} />
+          </div>
         </div>
       </div>
 
+      {/* Mobile Menu */}
+      {/* Overlay */}
       <div
         className={
-          navigation
-            ? "md:hidden fixed left-0 top-0 w-full h-full bg-black/70 backdrop-blur"
-            : ""
+          nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
         }
       >
+        {/* Side Drawer Menu */}
         <div
           className={
-            navigation
-              ? "fixed left-0 top-0 w-4/5 h-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-10 ease-in duration-500"
-              : "fixed top-0 left-[-100%] p-10 h-full ease-in duration-500"
+            nav
+              ? " fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
+              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
           }
         >
           <div>
             <div className="flex w-full items-center justify-between">
-              <Link href="/#home">
-                <h2
-                  onClick={() => setNavigation(false)}
-                  className="text-3xl font-bold uppercase underline underline-offset-2 tracking-wider cursor-pointer"
-                >
-                  Lutfi Ikbal Majid
-                </h2>
+              <Link href="/">
+                <h1 className="cursor-pointer">Lutv</h1>
               </Link>
               <div
-                onClick={() => setNavigation(false)}
-                className="p-3 cursor-pointer"
+                onClick={handleNav}
+                className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer"
               >
-                <FaTimes size={30} />
+                <AiOutlineClose />
               </div>
             </div>
+            <div className="border-b border-gray-300 my-4">
+              <p className="w-[85%] md:w-[90%] py-4">
+                Let&#39;s build something legendary together
+              </p>
+            </div>
           </div>
-
-          <div className="mt-24 flex flex-col h-fit gap-20">
+          <div className="py-4 flex flex-col">
             <ul className="uppercase">
-              {links.map(({ id, link }) => (
-                <Link key={id} href={`/#${link}`}>
-                  <li
-                    onClick={() => setNavigation(false)}
-                    className="py-4 text-2xl tracking-wider cursor-pointer"
-                  >
-                    {link}
-                  </li>
-                </Link>
-              ))}
+              <Link href="/">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Home
+                </li>
+              </Link>
+              <Link href="/#about">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  About
+                </li>
+              </Link>
+              <Link href="/#skills">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Skills
+                </li>
+              </Link>
+              <Link href="/#projects">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Projects
+                </li>
+              </Link>
+              <Link href="/resume">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Resume
+                </li>
+              </Link>
+              <Link href="/#contact">
+                <li onClick={() => setNav(false)} className="py-4 text-sm">
+                  Contact
+                </li>
+              </Link>
             </ul>
-
-            <div>
-              <div className="grid grid-cols-2 mx-auto w-4/5 gap-10">
-                <div className="flex items-center justify-center rounded-full shadow-md shadow-white p-3 cursor-pointer">
-                  <FaLinkedin size={25} />
-                </div>
-                <div className="flex items-center justify-center rounded-full shadow-md shadow-white p-3 cursor-pointer">
-                  <FaTwitter size={25} />
-                </div>
-                <div className="flex items-center justify-center rounded-full shadow-md shadow-white p-3 cursor-pointer">
-                  <FaFacebook size={25} />
-                </div>
-                <div className="flex items-center justify-center rounded-full shadow-md shadow-white p-3 cursor-pointer">
-                  <FaGithub size={25} />
-                </div>
+            <div className="pt-40">
+              <p className="uppercase tracking-widest text-[#5651e5]">
+                Let&#39;s Connect
+              </p>
+              <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
+                <a
+                  href="https://www.linkedin.com/in/clint-briley-50056920a/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaLinkedinIn />
+                  </div>
+                </a>
+                <a
+                  href="https://github.com/fireclint"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaGithub />
+                  </div>
+                </a>
+                <Link href="/#contact">
+                  <div
+                    onClick={() => setNav(!nav)}
+                    className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                  >
+                    <AiOutlineMail />
+                  </div>
+                </Link>
+                <Link href="/resume">
+                  <div
+                    onClick={() => setNav(!nav)}
+                    className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300"
+                  >
+                    <BsFillPersonLinesFill />
+                  </div>
+                </Link>
               </div>
             </div>
           </div>
