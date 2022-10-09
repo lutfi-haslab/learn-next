@@ -7,8 +7,23 @@ POST {{endpoint}}/api/hello
 Content-Type: application/json
 
 {
-  "nama": "Lutfi ikbal majid",
-  "age": 26
-}
+  "nama 
+GET {{endpoint}}/api/hello/1?search_query=test&page=10&limit=4
 ###
-GET {{endpoint}}/api/hello/1
+
+GET {{endpoint}}/api/user
+###
+
+POST {{endpoint}}/api/user
+###
+
+POST {{endpoint}}/api/user/post
+###
+GET {{endpoint}}/api/user/post
+###
+
+PUT {{endpoint}}/api/user/post?id=2
+###
+
+DELETE {{endpoint}}/api/user/post?id=4
+###

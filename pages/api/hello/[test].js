@@ -8,7 +8,11 @@ export default async function (req, res) {
 }
 
 const getById = async (req, res) => {
+  const { search_query, page, limit } = req.query;
+
   return res.status(200).json({
-    id: req.query.test,
+    search_query,
+    page,
+    limit,
   });
 };
