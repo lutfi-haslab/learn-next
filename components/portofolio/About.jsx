@@ -16,7 +16,7 @@ const About = () => {
           Hello, I am a full stack developer with 2 years experience. I started my career as a programmer since 2020 with PHP technology such Laravel and Codeigniter. I was an IoT Developer initially, but I often studied independently about front end and back end technology, finally I made an application. Until my office boss saw my potential, and transferred me as a developer.
           </p>
           <p className='py-2 text-gray-600'>
-          I've dived into Angular, Vue, Svelte and React. However, I prefer react, and now I always use NextJS, NextAuth, MySQL/MongoDB, and Prisma as my stack. I have created a mobile app using React Native and Kotlin. and currently studying Blockchain and Web3 Technology
+          I have dived into Angular, Vue, Svelte and React. However, I prefer react, and now I always use NextJS, NextAuth, MySQL/MongoDB, and Prisma as my stack. I have created a mobile app using React Native and Kotlin. and currently studying Blockchain and Web3 Technology
           </p>
           <Link href='/#projects'>
             <p className='py-2 text-gray-600 underline cursor-pointer'>
