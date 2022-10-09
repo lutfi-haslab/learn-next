@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div id="home" className="h-screen w-full text-center">
       <div className="max-w-screen-xl mx-auto w-full h-full pt-24 p-4 flex flex-col justify-around items-center">
-        <div className="w-64 h-64 mx-auto overflow-hidden rounded-xl">
+        <div className="w-64 h-64 mx-auto mt-40 md:mt-0 rounded-xl">
           <Image src={heroImage} alt="me" />
         </div>
 

@@ -42,13 +42,13 @@ const Contact = () => {
           </div>
 
           {/* form stuff  */}
-          <div className="w-full md:w-1/2 h-full rounded-xl p-4">
-            <div className="p-4 text-left">
+          <div className="p-4 text-left">
               <form
                 action="https://getform.io/f/e94d295d-086a-4974-ba95-f0fe40394521"
                 method="POST"
               >
-                <div className="grid md:grid-cols-2 gap-4 w-full py-2">
+                <div className="flex flex-col">
+                  <div className="flex flex-col md:flex-row md:space-x-3">
                   <div className="flex flex-col">
                     <label className="capitalize text-sm py-2 text-slate-600 font-light">
                       name
@@ -68,6 +68,7 @@ const Contact = () => {
                       name="phone"
                       className="border-2 rounded-lg p-3 flex focus:outline-none border-blue-200"
                     />
+                  </div>
                   </div>
 
                   <div className="flex flex-col col-span-2">
@@ -99,7 +100,6 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </div>
