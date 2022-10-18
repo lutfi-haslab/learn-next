@@ -9,7 +9,7 @@ import {
 } from "@thirdweb-dev/react";
 import { Input, SimpleGrid, Button } from "@mantine/core";
 
-const index = () => {
+const Index = () => {
   const [input, setInput] = useState();
   const connectWithMetamask = useMetamask();
   const address = useAddress();
@@ -76,4 +76,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;
