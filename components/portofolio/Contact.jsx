@@ -27,8 +27,8 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <h2 className='py-2'>Clint Briley</h2>
-                <p>Front-End Developer</p>
+                <h2 className='py-2'>Lutfi Ikbal Majid</h2>
+                <p>Full Stack Developer</p>
                 <p className='py-4'>
                   I am available for freelance or full-time positions. Contact
                   me and let&apos;s talk.
@@ -59,13 +59,11 @@ const Contact = () => {
                   <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                     <AiOutlineMail />
                   </div>
-                  <Link href='/resume'>
-                    <a>
+                  <a href='https://is3.cloudhost.id/lutzfy-hasdev/CV%20Lutfi%20Ikbal%20Majid.pdf' download>
                       <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                         <BsFillPersonLinesFill />
                       </div>
                     </a>
-                  </Link>
                 </div>
               </div>
             </div>

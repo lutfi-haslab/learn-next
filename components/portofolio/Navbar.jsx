@@ -73,7 +73,7 @@ const Navbar = () => {
               <Link href="/#projects">Projects</Link>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b">
-              <Link href="/resume">Resume</Link>
+              <a href="https://is3.cloudhost.id/lutzfy-hasdev/CV%20Lutfi%20Ikbal%20Majid.pdf" download>Resume</a>
             </li>
             <li className="ml-10 text-sm uppercase hover:border-b">
               <Link href="/#contact">Contact</Link>
